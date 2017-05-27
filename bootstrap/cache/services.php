@@ -23,11 +23,13 @@
     19 => 'Illuminate\\Translation\\TranslationServiceProvider',
     20 => 'Illuminate\\Validation\\ValidationServiceProvider',
     21 => 'Illuminate\\View\\ViewServiceProvider',
-    22 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    23 => 'App\\Providers\\AppServiceProvider',
-    24 => 'App\\Providers\\AuthServiceProvider',
-    25 => 'App\\Providers\\EventServiceProvider',
-    26 => 'App\\Providers\\RouteServiceProvider',
+    22 => 'Collective\\Html\\HtmlServiceProvider',
+    23 => 'Laravel\\Socialite\\SocialiteServiceProvider',
+    24 => 'Laravel\\Tinker\\TinkerServiceProvider',
+    25 => 'App\\Providers\\AppServiceProvider',
+    26 => 'App\\Providers\\AuthServiceProvider',
+    27 => 'App\\Providers\\EventServiceProvider',
+    28 => 'App\\Providers\\RouteServiceProvider',
   ),
   'eager' => 
   array (
@@ -137,6 +139,11 @@
     'translation.loader' => 'Illuminate\\Translation\\TranslationServiceProvider',
     'validator' => 'Illuminate\\Validation\\ValidationServiceProvider',
     'validation.presence' => 'Illuminate\\Validation\\ValidationServiceProvider',
+    'html' => 'Collective\\Html\\HtmlServiceProvider',
+    'form' => 'Collective\\Html\\HtmlServiceProvider',
+    'Collective\\Html\\HtmlBuilder' => 'Collective\\Html\\HtmlServiceProvider',
+    'Collective\\Html\\FormBuilder' => 'Collective\\Html\\HtmlServiceProvider',
+    'Laravel\\Socialite\\Contracts\\Factory' => 'Laravel\\Socialite\\SocialiteServiceProvider',
     'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
   ),
   'when' => 
@@ -175,6 +182,12 @@
     array (
     ),
     'Illuminate\\Validation\\ValidationServiceProvider' => 
+    array (
+    ),
+    'Collective\\Html\\HtmlServiceProvider' => 
+    array (
+    ),
+    'Laravel\\Socialite\\SocialiteServiceProvider' => 
     array (
     ),
     'Laravel\\Tinker\\TinkerServiceProvider' => 

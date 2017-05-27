@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('frontend.main');
 });
 
+Route::get('register',function(){
+	return view('frontend.user.register');
+});
+
+Route::POST('register/store',['uses'=>'UserController@store','as'=>'user.register']);
 
 Route::group(['prefix'=>'admin'],function(){
 	Route::get('user/create',function(){
