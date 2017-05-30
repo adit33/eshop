@@ -9,7 +9,9 @@
         "laravel/framework": "5.4.*",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
-        "laravelcollective/html": "^5.4.0"
+        "laravelcollective/html": "^5.4.0",
+        "yajra/laravel-datatables-buttons": "^1.1",
+        "yajra/laravel-datatables-oracle": "^7.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

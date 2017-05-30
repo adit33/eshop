@@ -25,4 +25,6 @@ Route::group(['prefix'=>'admin'],function(){
 	Route::get('user/create',function(){
 		return view('backend.user.create');
 	});
+
+	Route::resource('category','CategoryController');
 });
