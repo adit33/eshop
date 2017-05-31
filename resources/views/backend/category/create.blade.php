@@ -1,11 +1,11 @@
 @extends('backend.layout.master')
 
-@section('content')
 
 @section('title')
 {{ $title }}
 @endsection
 
+@section('content')
 
 {{ Form::open(['method'=>'POST','url'=>route('user.register'),'class'=>'ui form']) }}
   @include('backend.category._form')
@@ -13,3 +13,12 @@
 {{ Form::close() }}
 
 @endsection
+
+@push('scripts')
+<script type="text/javascript">
+	$('.ui.dropdown')
+  .dropdown({
+    // allowAdditions: true
+  });
+</script>
+@endpush
