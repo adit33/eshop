@@ -56,7 +56,7 @@
 </div>
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/components.js') }}"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+
 <script type="text/javascript">
     $('.ui.sidebar').sidebar({
     context: $('.bottom.segment')
