@@ -23,7 +23,7 @@
 </head>
 <body>
 <div id="app">
-  <div class="ui top attached demo menu">
+  <div id="sidebar" class="ui top attached demo menu">
   <a class="item">
     <i class="sidebar icon"></i> Menu
   </a>
@@ -57,14 +57,16 @@
 <script type="text/javascript" src="<?php echo e(asset('js/app.js')); ?>"></script>
 <script type="text/javascript" src="<?php echo e(asset('js/components.js')); ?>"></script>
 
+
+<?php echo $__env->yieldPushContent('scripts'); ?>  
+
 <script type="text/javascript">
     $('.ui.sidebar').sidebar({
     context: $('.bottom.segment')
     })
-  .sidebar('attach events', '.menu .item');
+  .sidebar('attach events', '#sidebar');
    
 </script>
-<?php echo $__env->yieldPushContent('scripts'); ?>  
 
 </body>
 

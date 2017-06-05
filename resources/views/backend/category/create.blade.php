@@ -18,7 +18,7 @@
 <script type="text/javascript">
 	$('.ui.dropdown')
   .dropdown({
-    // allowAdditions: true
+    allowAdditions: true
   });
 </script>
 @endpush
