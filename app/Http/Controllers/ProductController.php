@@ -4,23 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\ProductRequests;
+
+use App\Models\Product;
+
 class ProductController extends Controller
 {
     public function create(){
     	return view('backend.product.create');
     }
 
-    public function store(Request $request){
-    	$rules=[
-    				'nama'=>'required',
-    				'category_id'=>'required',
-    				'harga'=>'required',
-    				'deskripsi'=>'required'
-    			];
+    public function store(ProductRequests $request){
+        $model=new Product;
 
-    	$this->validate($request,$rules);
+        // $data=$request->all();
+
+
+        // if($model->addProduct($data))
+        //     return redirect()->back();
 
         return dd($request->all());
 
     }
+
+
 }

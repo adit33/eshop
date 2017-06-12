@@ -166,6 +166,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
         Yajra\Datatables\ButtonsServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -232,6 +233,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Datatables'=>Yajra\Datatables\Facades\Datatables::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 
