@@ -20,20 +20,33 @@
 	  new Vue({
   	el:"#app",
   	data:{
-  		categories:{},
-  		category_id:[]
+  		
   	},
   	methods:{
-  		addTag:function(value){
-  			alert(value)
-  		}
+  		storeProduct(){
+
+      }
   	}
   })	
 </script>
 
 <script type="text/javascript">
-var form=$("#form-create");
 
+  var form=$("#form-create");
+
+  function addProduct(){
+     $.ajax({
+      url:form.attr('action'),
+      type:'POST',
+      data:form.serializeArray(),
+      success:function(response){
+
+      },
+      error:function(response){
+        console.log(response.responseJSON)
+      }
+    })
+  }
 
   Dropzone.autoDiscover = false; // jika ada error Dropzone already attached tambahkan fungsi ini
 
@@ -46,14 +59,18 @@ var form=$("#form-create");
           uploadMultiple: true, //untuk upload lebih dari 1
           init:function(){
             $("#btnSave").on('click',function(){
-              dropzone.processQueue();
+              if (dropzone.getQueuedFiles().length > 0) { //cek apakah ada attachment atau tidak
+                  dropzone.processQueue();
+              }else{
+                addProduct()
+              }              
             });
           },
-            sending: function(file, xhr, formData) {
+          sending: function(file, xhr, formData) {
             let data=form.serializeArray(); 
             for (var i = 0; i < data.length; i++) {
               formData.append(data[i].name,data[i].value);
-            }
+          }
         }
     });  
 
