@@ -8,6 +8,8 @@ use App\Http\Requests\ProductRequest;
 
 use App\Models\Product;
 
+use App\Models\ProductImage;
+
 class ProductController extends Controller
 {
     public function create(){
@@ -15,15 +17,15 @@ class ProductController extends Controller
     }
 
     public function store(ProductRequest $request){
-        $model=new Product;
+        $model_product=new Product;
+        $model_profuct_image=new ProductImage;
 
-        // $data=$request->all();
+        $model->addProduct(array_except($data,['file']));
+        if(isset($data['file'])){
+            $model_profuct_image->addImage($data['file']);
+        }
 
-
-        // if($model->addProduct($data))
-        //     return redirect()->back();
-
-        return dd($request->all());
+        return redirect('product.index');
 
     }
 

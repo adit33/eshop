@@ -29,4 +29,11 @@ class ProductRequests extends FormRequests
 
         ];
     }
+
+    public function messages(){
+        return [
+            'nama.required'=>'Nama Barang Harus di isi',
+            'harga.required'=>'Harga harus di isi'
+        ];
+    }
 }

@@ -63,11 +63,40 @@
   }
   </style>
 @stack('styles')
-
+<div id="app">
  <div class="ui main text container">
    <!--  <h1 class="ui header">Sticky Example</h1>
     <p>This example shows how to use lazy loaded images, a sticky menu, and a simple text container</p> -->
   </div>
+
+<template>
+  <swiper :options="swiperOption" ref="mySwiper">
+    <!-- slides -->
+
+    <swiper-slide>
+      <div class="swiper-zoom-container">
+        <img src="http://goboiano.com/wp-content/uploads/2017/04/Koe-no-Katachi-anime.jpg"></img>
+      </div>
+    </swiper-slide>
+    
+    <swiper-slide>
+      <div class="swiper-zoom-container">
+        <img src="https://i.ytimg.com/vi/IEnlmKi8UO4/maxresdefault.jpg"></img>
+      </div>
+    </swiper-slide>
+
+    <swiper-slide>I'm Slide 3</swiper-slide>
+    <swiper-slide>I'm Slide 4</swiper-slide>
+    <swiper-slide>I'm Slide 5</swiper-slide>
+    <swiper-slide>I'm Slide 6</swiper-slide>
+    <swiper-slide>I'm Slide 7</swiper-slide>
+    <!-- Optional controls -->
+    <div class="swiper-pagination"  slot="pagination"></div>
+    <div class="swiper-button-prev" slot="button-prev"></div>
+    <div class="swiper-button-next" slot="button-next"></div>
+    <div class="swiper-scrollbar"   slot="scrollbar"></div>
+  </swiper>
+</template>
 
 
  <div class="ui borderless main menu">
@@ -115,6 +144,9 @@
     </div>
   </div>
     </div>
+
+
+<!-- <image-slider></image-slider> -->
 
 <div class="ui grid">
   <div class="two wide column"></div>
@@ -199,7 +231,7 @@
       </div>
     </div>
   </div>
-
+</div>
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/components.js') }}"></script>
 <script type="text/javascript">
@@ -232,6 +264,78 @@
     })
   ;
 
+</script>
+
+<script>
+Vue.component('image-slider',{
+  template:`
+  <swiper :options="swiperOption" ref="mySwiper">
+    <!-- slides -->
+    <swiper-slide>I'm Slide 1</swiper-slide>
+    <swiper-slide>I'm Slide 2</swiper-slide>
+    <swiper-slide>I'm Slide 3</swiper-slide>
+    <swiper-slide>I'm Slide 4</swiper-slide>
+    <swiper-slide>I'm Slide 5</swiper-slide>
+    <swiper-slide>I'm Slide 6</swiper-slide>
+    <swiper-slide>I'm Slide 7</swiper-slide>
+    <!-- Optional controls -->
+    <div class="swiper-pagination"  slot="pagination"></div>
+    <div class="swiper-button-prev" slot="button-prev"></div>
+    <div class="swiper-button-next" slot="button-next"></div>
+    <div class="swiper-scrollbar"   slot="scrollbar"></div>
+  </swiper>`
+});
+
+new Vue({
+  el:"#app",
+  name: 'carrousel',
+    data() {
+      return {
+        nama:'Aditya',
+        swiperOption: {
+          notNextTick: true,
+          autoplay: 2500,
+          direction : 'vertical',
+          grabCursor : true,
+          setWrapperSize :true,
+          autoHeight: true,
+          pagination : '.swiper-pagination',
+          paginationClickable :true,
+          prevButton:'.swiper-button-prev',
+          nextButton:'.swiper-button-next',
+          scrollbar:'.swiper-scrollbar',
+          mousewheelControl : true,
+          observeParents:true,
+          debugger: true,
+          loop:true,
+          // height:500,
+          autoHeight:true,
+          setWrapperSize:true,
+          onTransitionStart(swiper){
+            // console.log(swiper)
+          },
+          // more Swiper configs and callbacks...
+          // ...
+        }
+      }
+    },
+    // you can find current swiper instance object like this, while the notNextTick property value must be true
+    // 如果你需要得到当前的swiper对象来做一些事情，你可以像下面这样定义一个方法属性来获取当前的swiper对象，同时notNextTick必须为true
+    computed: {
+      swiper() {
+        return this.$refs.mySwiper.swiper
+      }
+    },
+    mounted() {
+      // you can use current swiper instance object to do something(swiper methods)
+      // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
+      // console.log('this is current swiper instance object', this.swiper)
+      // this.swiper.slideTo(3, 1000, false)
+    }
+})
+
+    
+  
 </script>
 @stack('scripts')
 

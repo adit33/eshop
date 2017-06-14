@@ -10,4 +10,5 @@ class Category extends Model
     protected $fillable=['id','nama'];
     public $timestamps=false;
     protected $primaryKey='id';
+
 }
