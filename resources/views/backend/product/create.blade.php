@@ -51,6 +51,7 @@
   Dropzone.autoDiscover = false; // jika ada error Dropzone already attached tambahkan fungsi ini
 
   var dropzone = new Dropzone("#attachment",{
+          acceptedFiles:'image/*',
           addRemoveLinks: true, // tambah link hapus photo
           autoProcessQueue: false, // agar tidak otomatis langsung upload 
           maxFiles:10, // jumlah maximal upload file

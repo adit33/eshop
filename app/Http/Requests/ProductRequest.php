@@ -25,7 +25,9 @@ class ProductRequest extends FormRequest
     {
         return [
             'nama'=>'required',
-            'harga'=>'required'
+            'harga'=>'required',
+            'category_id'=>'required',
+            // 'file'=>'mimes:jpeg,jpg,png | max:1000'
 
         ];
     }
@@ -33,7 +35,8 @@ class ProductRequest extends FormRequest
     public function messages(){
         return [
             'nama.required'=>'Nama Barang Harus di isi',
-            'harga.required'=>'Harga harus di isi'
+            'harga.required'=>'Harga harus di isi',
+            'category_id.required'=>'Kategori Barang harus di isi'
         ];
     }
 }

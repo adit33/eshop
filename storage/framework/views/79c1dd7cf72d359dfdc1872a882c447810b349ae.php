@@ -291,7 +291,7 @@ new Vue({
   name: 'carrousel',
     data() {
       return {
-        nama:'Aditya',
+        products:{},
         swiperOption: {
           notNextTick: true,
           autoplay: 2500,
@@ -308,7 +308,7 @@ new Vue({
           observeParents:true,
           debugger: true,
           loop:true,
-          // height:500,
+          height:500,
           autoHeight:true,
           setWrapperSize:true,
           onTransitionStart(swiper){
@@ -319,6 +319,14 @@ new Vue({
         }
       }
     },
+    methods:{
+      getProducts(){
+        var self=this;
+        axios.get('api/product').then(function(response){
+          self.products=response.data;
+        }).catch()
+      }
+    },
     // you can find current swiper instance object like this, while the notNextTick property value must be true
     // 如果你需要得到当前的swiper对象来做一些事情，你可以像下面这样定义一个方法属性来获取当前的swiper对象，同时notNextTick必须为true
     computed: {
@@ -327,8 +335,7 @@ new Vue({
       }
     },
     mounted() {
-      // you can use current swiper instance object to do something(swiper methods)
-      // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
+      this.getProducts()
       // console.log('this is current swiper instance object', this.swiper)
       // this.swiper.slideTo(3, 1000, false)
     }

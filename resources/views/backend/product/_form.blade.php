@@ -6,7 +6,7 @@
 <div class="field">
 <label>Kategori</label>
 
-{{ Form::select('category_id[]',App\Models\Category::pluck('nama','id'),null,['class'=>'ui fluid search dropdown','multiple'=>'','v-model'=>'category_id']) }}
+{{ Form::select('category_id[]',App\Models\Category::pluck('nama','id'),null,['class'=>'ui fluid search dropdown','multiple'=>'',]) }}
 
  <div class="field">
     <label>Harga Barang</label>

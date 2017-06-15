@@ -1,32 +1,13 @@
 <?php $__env->startSection('content'); ?>
-
-<div class="ui divided items">
+<div class="ui divided items" v-for="product in products">
   <div class="item">
     <div class="image">
-      <img src="/images/wireframe/image.png">
+      <img :src="'images/product/'+ product.product_image.name">{{ product.product_image | json }}
     </div>
     <div class="content">
-      <a class="header">12 Years a Slave</a>
+      <a class="header">{{ product.nama }}</a>
       <div class="meta">
-        <span class="cinema">Union Square 14</span>
-      </div>
-      <div class="description">
-        <p></p>
-      </div>
-      <div class="extra">
-        <div class="ui label">IMAX</div>
-        <div class="ui label"><i class="globe icon"></i> Additional Languages</div>
-      </div>
-    </div>
-  </div>
-  <div class="item">
-    <div class="image">
-      <img src="/images/wireframe/image.png">
-    </div>
-    <div class="content">
-      <a class="header">My Neighbor Totoro</a>
-      <div class="meta">
-        <span class="cinema">IFC Cinema</span>
+        <span class="cinema">{{ product.harga }}</span>
       </div>
       <div class="description">
         <p></p>
@@ -36,30 +17,14 @@
           Buy tickets
           <i class="right chevron icon"></i>
         </div>
-        <div class="ui label">Limited</div>
-      </div>
-    </div>
-  </div>
-  <div class="item">
-    <div class="image">
-      <img src="/images/wireframe/image.png">
-    </div>
-    <div class="content">
-      <a class="header">Watchmen</a>
-      <div class="meta">
-        <span class="cinema">IFC</span>
-      </div>
-      <div class="description">
-        <p></p>
-      </div>
-      <div class="extra">
-        <div class="ui right floated primary button">
-          Buy tickets
-          <i class="right chevron icon"></i>
+        <div v-for="category in product.product_category">
+          <div class="ui label">{{ category.category.nama }}</div>
         </div>
+        
       </div>
     </div>
   </div>
+ 
 </div>
 
 <?php $__env->stopSection(); ?>
