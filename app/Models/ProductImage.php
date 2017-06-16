@@ -19,7 +19,7 @@ class ProductImage extends Model
 	            $image_name=str_random(10).'-'.$image_original_name;
 	            $image->move($this->path,$image_name);
 	            $dataImage['product_id']=$data['product_id'];
-	            $dataImage['image_name']=$image_original_name;
+	            $dataImage['image_name']=$image_name;
 	            $this->addImageName($dataImage);
     		}
     	}
