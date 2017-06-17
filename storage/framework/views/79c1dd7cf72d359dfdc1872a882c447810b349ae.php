@@ -148,6 +148,17 @@
 
 <!-- <image-slider></image-slider> -->
 
+<template>
+  <vue-event-calendar :events="demoEvents">
+      <template scope="props">
+        <div v-for="(event, index) in props.showEvents" class="event-item">
+          <!-- In here do whatever you want, make you owner event template -->
+          {{event}}
+        </div>
+      </template>
+    </vue-event-calendar>
+</template>
+
 <div class="ui grid">
   <div class="one wide column"></div>
   <div class="fourteen wide column"> 
@@ -272,6 +283,14 @@ new Vue({
       return {
         products:{},
         layout:'ui one column grid',
+        demoEvents: [{
+        date: '2017/06/15',
+        title: 'eat',
+        desc: 'longlonglong description'
+        },{
+        date: '2017/06/16',
+        title: 'this is a title'
+        }],
         swiperOption: {
           notNextTick: true,
           autoplay: 2500,
