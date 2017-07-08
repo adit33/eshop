@@ -17,12 +17,14 @@ class ImageHelper
 	}
 
 	public function setImageName(){
-
+		
 	}
 
 	public function getImagePath(){
 		
 	}
+
+	
 
 }
 

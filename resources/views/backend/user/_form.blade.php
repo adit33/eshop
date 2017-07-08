@@ -10,3 +10,7 @@
   	<label>Password</label>
   	{{ Form::password('password',null,['placeholder'=>'Masukan Password']) }}
   </div>
+  <div class="field">
+    <label>Password</label>
+    {{ Form::password('password_confirmation',null,['placeholder'=>'Masukan Password']) }}
+  </div>
