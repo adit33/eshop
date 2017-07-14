@@ -15,6 +15,28 @@ Route::get('/', function () {
     return view('frontend.main');
 });
 
+Route::get('/test', function()
+{
+ 
+    // Variable data ini yang berupa array ini akan bisa diakses di dalam "view".
+    $data = ['prize' => 'Peke', 'total' => 3 ];
+ 
+    // "emails.hello" adalah nama view.
+    Mail::send('backend.emails.user_register', $data, function ($mail)
+    {
+      // Email dikirimkan ke address "momo@deviluke.com" 
+      // dengan nama penerima "Momo Velia Deviluke"
+      $mail->to('aditpastrana@gmail.com', 'Aditya');
+ 
+      // Copy carbon dikirimkan ke address "haruna@sairenji" 
+      // dengan nama penerima "Haruna Sairenji"
+      $mail->cc('eren.jeager33@gmail.com', 'Haruna Sairenji');
+ 
+      $mail->subject('Hello World!');
+    });
+ 
+});
+
 Route::get('register',function(){
 	return view('frontend.user.register');
 });
