@@ -18,19 +18,14 @@ Route::get('/', function () {
 Route::get('/test', function()
 {
  
-    // Variable data ini yang berupa array ini akan bisa diakses di dalam "view".
-    $data = ['prize' => 'Peke', 'total' => 3 ];
+
+    $data = ['pesan'=>'Hai ini pesan pertama saya'];
  
-    // "emails.hello" adalah nama view.
     Mail::send('backend.emails.user_register', $data, function ($mail)
     {
-      // Email dikirimkan ke address "momo@deviluke.com" 
-      // dengan nama penerima "Momo Velia Deviluke"
-      $mail->to('aditpastrana@gmail.com', 'Aditya');
+      $mail->to('eren.jeager33@gmail.com', 'Aditya');
  
-      // Copy carbon dikirimkan ke address "haruna@sairenji" 
-      // dengan nama penerima "Haruna Sairenji"
-      $mail->cc('eren.jeager33@gmail.com', 'Haruna Sairenji');
+      $mail->cc('eren.jeager33@gmail.com', 'Eren Jeager');
  
       $mail->subject('Hello World!');
     });
@@ -41,10 +36,13 @@ Route::get('register',function(){
 	return view('frontend.user.register');
 });
 
+
+
 Route::POST('register/store',['uses'=>'UserController@store','as'=>'user.register']);
 
 Route::group(['prefix'=>'admin'],function(){
-	Route::get('user/create',function(){
+	Route::resource('user','UserController');
+  Route::get('user/create',function(){
 		return view('backend.user.create');
 	});
 

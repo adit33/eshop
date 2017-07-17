@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Mail;
+use App\Mail\UserRegistration;
 
 class User extends Authenticatable
 {
@@ -15,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','activation_token'
     ];
 
     /**
@@ -28,4 +30,11 @@ class User extends Authenticatable
     ];
 
     protected $table='user';
+
+    public static function boot(){
+        parent::boot();
+        self::creating(function($user){
+            Mail::to($user)->send(new UserRegistration($user));
+        });
+    }
 }

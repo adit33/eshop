@@ -13,7 +13,7 @@
 
     <!-- Styles -->
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -56,7 +56,7 @@
 </div>
 <script type="text/javascript" src="<?php echo e(asset('js/app.js')); ?>"></script>
 <script type="text/javascript" src="<?php echo e(asset('js/components.js')); ?>"></script>
-
+<script type="text/javascript" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 
 <?php echo $__env->yieldPushContent('scripts'); ?>  
 
