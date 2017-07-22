@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\User;
+use App\Models\Product;
 use Yajra\Datatables\Services\DataTable;
 
 class ProductDataTable extends DataTable
@@ -26,7 +26,7 @@ class ProductDataTable extends DataTable
      */
     public function query()
     {
-        $query = User::query()->select($this->getColumns());
+        $query = Product::query()->select($this->getColumns());
 
         return $this->applyScopes($query);
     }
@@ -42,7 +42,11 @@ class ProductDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->ajax('')
                     ->addAction(['width' => '80px'])
-                    ->parameters([
+                    ->parameters($this->getBuilderParameters());
+    }
+
+    public function getBuilderParameters(){
+        return [
                         'dom'     => 'Bfrtip',
                         'order'   => [[0, 'desc']],
                         'buttons' => [
@@ -51,8 +55,8 @@ class ProductDataTable extends DataTable
                             'print',
                             'reset',
                             'reload',
-                        ],
-                    ]);
+                        ]
+                    ];
     }
 
     /**
@@ -64,7 +68,8 @@ class ProductDataTable extends DataTable
     {
         return [
             'id',
-            'add your columns',
+            'nama',
+            'deskripsi',
             'created_at',
             'updated_at'
         ];

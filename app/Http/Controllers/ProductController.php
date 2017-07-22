@@ -12,8 +12,15 @@ use App\Models\ProductImage;
 
 use App\Models\ProductCategory;
 
+use App\DataTables\ProductDataTable;
+
 class ProductController extends Controller
-{
+{   
+
+    public function index(ProductDataTable $dataTable){
+        return $dataTable->render('backend.product.index');
+    }
+
     public function create(){
     	return view('backend.product.create');
     }

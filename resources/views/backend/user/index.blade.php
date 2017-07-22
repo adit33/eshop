@@ -5,7 +5,7 @@
 
 {{ Form::open(['method'=>'POST','url'=>route('user.register'),'class'=>'ui form']) }}
 
-{!! $dataTable->table() !!}
+{!! $dataTable->table(['class'=>'']) !!}
 
 @endsection
 

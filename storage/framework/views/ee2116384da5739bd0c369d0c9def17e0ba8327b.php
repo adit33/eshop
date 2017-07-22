@@ -14,6 +14,7 @@
     <!-- Styles -->
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.semanticui.min.css"> -->
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -56,8 +57,10 @@
 </div>
 <script type="text/javascript" src="<?php echo e(asset('js/app.js')); ?>"></script>
 <script type="text/javascript" src="<?php echo e(asset('js/components.js')); ?>"></script>
-<script type="text/javascript" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-
+<script type="text/javascript" src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
+<script src="https://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="<?php echo e(asset('vendor/datatables/buttons.server-side.js')); ?>"></script>
 <?php echo $__env->yieldPushContent('scripts'); ?>  
 
 <script type="text/javascript">
